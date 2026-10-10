@@ -271,7 +271,7 @@
         const source = /^https?:\/\//i.test(item.img || "") ? item.img : fallbackImage(kind);
         if (!source) return `<div class="image-placeholder" role="img" aria-label="${esc(alt)}"><span>SCOUT ARCHIVE</span><span>IMAGE NOT ON FILE</span></div>`;
         const fallback = source === item.img ? fallbackImage(kind) : "";
-        return `<img src="${esc(source)}" alt="${esc(alt)}" loading="lazy"${fallback && fallback !== source ? ` data-fallback="${esc(fallback)}"` : ""} onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;delete this.dataset.fallback}else{this.hidden=true;this.parentElement.classList.add('image-unavailable')}">`;
+        return `<img src="${esc(source)}" alt="${esc(alt)}" loading="lazy" referrerpolicy="no-referrer"${fallback && fallback !== source ? ` data-fallback="${esc(fallback)}"` : ""} onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;delete this.dataset.fallback}else{this.hidden=true;this.parentElement.classList.add('image-unavailable')}">`;
       };
       const seasonName = (episode) => {
         if (!episode) return "Unknown";
